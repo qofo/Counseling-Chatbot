@@ -1,0 +1,23 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+*.png
+*.jpg
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+
+#ignore .venv folder
+
+backend/.venv/**
+backend/chroma-db/
+backend/data/
+
+src_OLD/
+
+node_modules/
+

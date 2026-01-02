@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FLY AI 8기 2팀 챗봇 구축</title>
+    <style>
+      /* 1. 전체 레이아웃: 좌/중/우 3열 */
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      body {
+        font-family: 'Pretendard', sans-serif;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 1fr minmax(100px, 800px) 1fr; /* 좌 - 가운데 - 우 */
+        width: 100vw;
+        height: 100vh;
+      }
+
+      /* 2. 좌우 배경 영역 */
+      .bg-left,
+      .bg-right {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; /* 필요에 따라 변경 */
+      }
+
+      .bg-left {
+        background-image: url('/leftImage.png');   /* public 기준 경로 권장 */
+      }
+
+      .bg-right {
+        background-image: url('/userImage2.jpg');
+      }
+
+      /* 3. 가운데 채팅 영역 */
+      .center-area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+      }
+
+      /* 4. 실제 채팅 박스 스타일 (React 컴포넌트의 최상단 div에 class="chat-container" 사용) */
+      .chat-container {
+        background: rgba(255, 255, 255, 0.1); /* 반투명 배경 */
+        backdrop-filter: blur(10px);          /* 흐림 효과 */
+        padding: 0px;
+        border-radius: 20px;
+        width: 1000px;
+        
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <!-- 왼쪽 배경 -->
+      <div class="bg-left"></div>
+
+      <!-- 가운데 채팅 영역 -->
+      <div class="center-area">
+        <div id="root"></div>
+      </div>
+
+      <!-- 오른쪽 배경 -->
+      <div class="bg-right"></div>
+    </div>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
