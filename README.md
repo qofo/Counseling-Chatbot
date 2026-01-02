@@ -5,11 +5,12 @@ SKT FLY AI 8기 2팀 demo 연애 상담 챗봇 시스템 (React Frontend + Pytho
 ## 프로젝트 구조
 
 ```
-├── backend/                 # Python Flask 백엔드
-│   ├── chatbot_server.py   # Flask 서버 메인 파일
+├── backend/                 # Python Fastapi 백엔드
+│   ├── chatbot_server.py   # Fastapi 서버 메인 파일
 │   ├── requirements.txt    # Python 패키지 목록
-│   ├── .env.example        # 환경변수 예시
-│   └── README.md           # 백엔드 설명서
+│   ├── .env                # 환경변수 예시
+│   ├── data/               # RAG용 데이터 파일들  
+│   └── chroma_db/          # 벡터화된 db               
 │
 └── src/                    # React 프론트엔드
     ├── app/
@@ -26,6 +27,10 @@ SKT FLY AI 8기 2팀 demo 연애 상담 챗봇 시스템 (React Frontend + Pytho
 
 ### 1. Python 백엔드 서버 실행
 
+#### 사전 작업
+- backend/.env 파일에 `OPENAI_API_KEY` 입력
+- backend/data/ 디렉토리에 적절한 `.txt` 파일 추가
+
 **터미널 1:**
 ```bash
 # 가상환경 생성 및 활성화 (최초 1회)
@@ -39,7 +44,7 @@ venv\Scripts\activate       # Windows
 pip install -r requirements.txt
 
 # 서버 실행
-python app.py
+python chatbot_server.py
 ```
 
 서버가 `http://localhost:8000`에서 실행됩니다.
